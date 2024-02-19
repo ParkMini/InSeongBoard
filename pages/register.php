@@ -1,3 +1,21 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $email = $_POST['email'];
+  $phone_number = $_POST['phone_number'];
+  $gender = $_POST['gender'];
+
+  try {
+    $sql = "INSERT INTO users (username, password, email, phone_number, gender) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$username, $password, $email, $phone_number, $gender]);
+    echo "회원가입이 성공적으로 완료되었습니다.";
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,7 +27,7 @@
   <body>
     <div class="container">
       <h2 class="mt-5">회원가입</h2>
-      <form action="/signup" method="post">
+      <form action="" method="post">
         <div class="form-group">
           <label for="username">아이디</label>
           <input type="text" class="form-control" id="username" name="username" required />
