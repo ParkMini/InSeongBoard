@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('./config/dbconnect.php');
 
 $request = $_SERVER['REQUEST_URI'];
@@ -7,6 +8,7 @@ $path[1] = isset($path[1]) ? $path[1] : null;
 $resource = explode("/", $path[0]);
 echo "<script>console.log('path[0] = " . $path[0] . "');</script>";
 echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
+echo isset($_SESSION["user_idx"]) ? "<h1>로그인 되었습니다 : " . $_SESSION["user_idx"] : "<h1>로그인되지 않았습니다.";
 
 $page = "";
 switch ($resource[1]) {

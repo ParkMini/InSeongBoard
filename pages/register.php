@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <body>
     <div class="container">
       <h2 class="mt-5">회원가입</h2>
-      <form action="" method="post">
+      <form action="/register" method="post">
         <div class="form-group">
           <label for="username">아이디</label>
           <input type="text" class="form-control" id="username" name="username" required />

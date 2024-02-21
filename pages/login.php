@@ -1,9 +1,4 @@
 <?php
-session_start(); // 세션 시작
-
-// dbconnect.php 파일을 포함하여 데이터베이스 연결
-require_once 'dbconnect.php';
-
 // 로그인 처리
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
@@ -20,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($user) {
     // 로그인 성공: 사용자 세션 정보 저장
-    $_SESSION['user_id'] = $user['user_idx'];
+    $_SESSION['user_idx'] = $user['user_idx'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['is_admin'] = $user['is_admin'];
 
