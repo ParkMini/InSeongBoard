@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['is_admin'] = $user['is_admin'];
 
     // 로그인 성공 후 이동할 페이지 지정
-    header("Location: welcome.php"); // 변경 가능
+    header("Location: /"); // 변경 가능
     exit;
   } else {
     // 로그인 실패: 경고 메시지 출력
