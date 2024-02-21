@@ -13,7 +13,7 @@ echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
 echo isset($_SESSION["user_idx"]) ? "<h1>로그인 되었습니다 : " . $_SESSION["user_idx"] : "<h1>로그인되지 않았습니다.";
 
 $page = "";
-include('./components/header.html');
+include('./components/header.php');
 switch ($resource[1]) {
     case '':
         $page = "./pages/main.php";
@@ -22,6 +22,9 @@ switch ($resource[1]) {
         $page = "./pages/" . $resource[1] . ".php";
         break;
     case 'register':
+        $page = "./pages/" . $resource[1] . ".php";
+        break;
+    case 'logout':
         $page = "./pages/" . $resource[1] . ".php";
         break;
     default:
