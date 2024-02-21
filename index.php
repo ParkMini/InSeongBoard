@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="./css/global.css">
-
 <?php
 session_start();
 include('./config/dbconnect.php');
@@ -11,24 +9,44 @@ $resource = explode("/", $path[0]);
 echo "<script>console.log('path[0] = " . $path[0] . "');</script>";
 echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
 // echo isset($_SESSION["user_idx"]) ? "<h1>로그인 되었습니다 : " . $_SESSION["user_idx"] : "<h1>로그인되지 않았습니다.";
+?>
+<!DOCTYPE html>
+<html lang="ko">
 
-$page = "";
-include('./components/header.php');
-switch ($resource[1]) {
-    case '':
-        $page = "./pages/main.php";
-        break;
-    case 'login':
-        $page = "./pages/" . $resource[1] . ".php";
-        break;
-    case 'register':
-        $page = "./pages/" . $resource[1] . ".php";
-        break;
-    case 'logout':
-        $page = "./pages/" . $resource[1] . ".php";
-        break;
-    default:
-        $page = "./pages/404.php";
-        break;
-}
-include($page);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <?php
+    $page = "";
+    include('./components/header.php');
+    switch ($resource[1]) {
+        case '':
+            $page = "./pages/main.php";
+            break;
+        case 'login':
+            $page = "./pages/" . $resource[1] . ".php";
+            break;
+        case 'register':
+            $page = "./pages/" . $resource[1] . ".php";
+            break;
+        case 'logout':
+            $page = "./pages/" . $resource[1] . ".php";
+            break;
+        default:
+            $page = "./pages/404.php";
+            break;
+    }
+    include($page);
+    ?>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

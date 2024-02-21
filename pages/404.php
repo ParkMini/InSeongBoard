@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>잘못된 접근</title>
     <style>
         * {
             margin: 0;
@@ -32,13 +25,7 @@
             color: red;
         }
     </style>
-</head>
-
-<body>
     <div id="container">
         <h1>이도저도 아무것도 아닌 그러하지 못한 그런 곳</h1>
         <h2>404</h2>
     </div>
-</body>
-
-</html>
