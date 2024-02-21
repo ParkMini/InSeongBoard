@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./css/global.css">
+
 <?php
 session_start();
 include('./config/dbconnect.php');
@@ -11,6 +13,7 @@ echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
 echo isset($_SESSION["user_idx"]) ? "<h1>로그인 되었습니다 : " . $_SESSION["user_idx"] : "<h1>로그인되지 않았습니다.";
 
 $page = "";
+include('./components/header.html');
 switch ($resource[1]) {
     case '':
         $page = "./pages/main.php";
