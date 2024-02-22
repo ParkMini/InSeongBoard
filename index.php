@@ -44,6 +44,9 @@ echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
         case 'posts':
             $page = "./pages/" . $resource[1] . ".php";
             break;
+        case 'admin':
+            $page = "./pages/" . $resource[1] . ".php";
+            break;
         default:
             $page = "./pages/404.php";
             break;
@@ -51,7 +54,7 @@ echo "<script>console.log('path[1] = " . $path[1] . "');</script>";
     include($page);
     ?>
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
