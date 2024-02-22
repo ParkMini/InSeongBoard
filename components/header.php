@@ -6,12 +6,20 @@
     <div id="right">
         <ul>
             <?php
+            if (isset($_SESSION["user_idx"]) && $_SESSION["is_admin"] == 1) {
+                echo "
+                    <li><a href='./admin'>관리자 페이지</a></li>
+                    ";
+            }
             if (isset($_SESSION["user_idx"])) {
                 echo "
+                <li><a href='./posts'>게시글's</a></li>
+                <li><a href='./posting'>게시글 롸이트</a></li>
                 <li><a href='./logout'>로그아웃</a></li>
                 ";
             } else {
                 echo "
+                <li><a href='./posts'>게시글's</a></li>
                 <li><a href='./login'>로그인</a></li>
                 <li><a href='./register'>회원가입</a></li>
                 ";
@@ -22,24 +30,24 @@
 </header>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var rainbowText = document.getElementById('headerTitle');
-    var text = rainbowText.innerText;
+    document.addEventListener('DOMContentLoaded', function() {
+        var rainbowText = document.getElementById('headerTitle');
+        var text = rainbowText.innerText;
 
-    function updateRainbowText() {
-        rainbowText.innerHTML = ""; // 기존 텍스트를 비웁니다.
-        var colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']; // 무지개 색상
-        for (var i = 0; i < text.length; i++) {
-            var charElem = document.createElement('span');
-            charElem.style.color = colors[(i + colorShift) % colors.length];
-            charElem.textContent = text[i];
-            rainbowText.appendChild(charElem);
+        function updateRainbowText() {
+            rainbowText.innerHTML = ""; // 기존 텍스트를 비웁니다.
+            var colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3']; // 무지개 색상
+            for (var i = 0; i < text.length; i++) {
+                var charElem = document.createElement('span');
+                charElem.style.color = colors[(i + colorShift) % colors.length];
+                charElem.textContent = text[i];
+                rainbowText.appendChild(charElem);
+            }
+            colorShift = (colorShift + 1) % colors.length; // 색상 이동
         }
-        colorShift = (colorShift + 1) % colors.length; // 색상 이동
-    }
 
-    var colorShift = 0;
-    updateRainbowText(); // 초기 무지개 텍스트 설정
-    setInterval(updateRainbowText, 100); // 1000ms(1초)마다 색상 변경
-});
+        var colorShift = 0;
+        updateRainbowText(); // 초기 무지개 텍스트 설정
+        setInterval(updateRainbowText, 100); // 1000ms(1초)마다 색상 변경
+    });
 </script>
